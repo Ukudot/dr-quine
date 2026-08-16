@@ -134,7 +134,7 @@ class MacroQuinizer(Quinizer):
         one_line_source_program = injected_source_program.replace('\n', '')
 
         # Creates the macro version of the program
-        macro_source_program = '\n'.join(self._includes) + f"\n#define MAIN {one_line_source_program}\n{quine_function}\n{self_macro}\n\n//This MAIN macro runs the program\nMAIN\n"
+        macro_source_program = '\n'.join(self._includes) + f"\n#define MAIN {one_line_source_program}\n{quine_function}\n{self_macro}\n\n/*\nThis MAIN macro runs the program\n*/\nMAIN\n"
         return macro_source_program
 
     def quinize(self) -> None:
